@@ -1,4 +1,14 @@
 <div class="container px-5 px-sm-0">
+  <div class="error_explanation">
+  <% if @book.errors.any? %>
+  <%= @book.errors.count %>error prohibited this book from being saved:
+  <ul>
+    <% @book.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+  <% end %>
+  </div>
   <div class="row">
     <%= render 'list', user: @user,book: @book %>
     <div class="col-md-8 offset-md-1">
